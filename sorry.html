@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love - I'm Sorry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #d291bc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #5a3e36;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(to right, #d291bc, #f7c8e0, #ffafbd);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #5a3e36;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            animation: textGlow 3s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); }
+            100% { text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d; }
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: #7a5c51;
+            font-weight: 500;
+        }
+
+        .heart {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2.2rem;
+            color: #ff4d6d;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .apology-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .apology-section h2 {
+            font-size: 2.2rem;
+            color: #d291bc;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .apology-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #d291bc, transparent);
+        }
+
+        .apology-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            background-color: #fff5f7;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .apology-text:hover {
+            transform: translateY(-5px);
+        }
+
+        .love-section h2 {
+            font-size: 2.2rem;
+            color: #d291bc;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .love-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, #d291bc, transparent);
+        }
+
+        .love-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            background-color: #fff5f7;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .love-text:hover {
+            transform: translateY(-5px);
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            background: linear-gradient(to right, #d291bc, #f7c8e0);
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            color: #5a3e36;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #f7c8e0, #d291bc);
+        }
+
+        .special-btn {
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+        }
+
+        .special-btn:hover {
+            background: linear-gradient(to right, #ffc3a0, #ffafbd);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(to right, #f7c8e0, #d291bc);
+            color: #5a3e36;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: #ff4d6d;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .memory-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .memory-section h2 {
+            font-size: 2.2rem;
+            color: #d291bc;
+            margin-bottom: 20px;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            animation: pulse 3s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .photo-frame:before {
+            content: 'Our Photo';
+            position: absolute;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .photo-frame:after {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(#ffafbd, #ffc3a0, #d291bc, #f7c8e0, #ffafbd);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .promise-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .promise-section h2 {
+            font-size: 2.2rem;
+            color: #d291bc;
+            margin-bottom: 20px;
+        }
+
+        .promises {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .promise-card {
+            background: linear-gradient(135deg, #fff5f7, #ffeef1);
+            padding: 20px;
+            border-radius: 15px;
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .promise-card i {
+            font-size: 2rem;
+            color: #d291bc;
+            margin-bottom: 10px;
+        }
+
+        .message-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: scaleUp 0.5s ease;
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #d291bc;
+        }
+
+        .love-meter {
+            width: 100%;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ffafbd, #ff4d6d);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .apology-section h2, .love-section h2, .memory-section h2, .promise-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .apology-text, .love-text {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="heart">❤️</div>
+            <h1>For My Dearest Love, Jiggguuuuu</h1>
+            <p>You mean everything to me, my soul , my heart and my life patner </p>
+        </div>
+        
+        <div class="content">
+            <div class="apology-section">
+                <h2>I'm Truly Sorry</h2>
+                <div class="apology-text">
+                    My love, I am deeply sorry for my mistakes and for any pain I've caused you. 
+                    You are the most precious person in my life, and seeing you hurt breaks my heart. 
+                    I promise to learn from this and become a better person for you. 
+                    Your happiness means everything to me, and I will do whatever it takes to make things right.
+                </div>
+                
+                <div class="buttons-container">
+                    <button id="apologyBtn">
+                        <i class="fas fa-heart"></i> Please Forgive Me
+                    </button>
+                    <button id="promiseBtn" class="special-btn">
+                        <i class="fas fa-hand-holding-heart"></i> My Promises
+                    </button>
+                    <button id="memoryBtn">
+                        <i class="fas fa-images"></i> Our Memories
+                    </button>
+                </div>
+            </div>
+            
+            <div class="memory-section">
+            
+                <p style="margin-top: 20px; font-style: italic;">Every moment with you is precious to me</p>
+                
+                <div class="buttons-container">
+                    <button id="loveMeterBtn">
+                        <i class="fas fa-heartbeat"></i> Check Our Love Meter
+                    </button>
+                </div>
+            </div>
+            
+            <div class="promise-section">
+                <h2>My Promises to You</h2>
+                <div class="promises">
+                    <div class="promise-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Always Love You</h3>
+                        <p>I will love you unconditionally every single day</p>
+                    </div>
+                    <div class="promise-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Respect You</h3>
+                        <p>I will always value your thoughts and feelings</p>
+                    </div>
+                    <div class="promise-card">
+                        <i class="fas fa-laugh-beam"></i>
+                        <h3>Make You Happy</h3>
+                        <p>Your happiness will always be my priority</p>
+                    </div>
+                    <div class="promise-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Protect You</h3>
+                        <p>I will always be there to support and protect you</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="love-section">
+                <h2>My Love For You</h2>
+                <div class="love-text">
+                    <p>My dearest love, from the moment you came into my life, everything changed. You brought colors to my monochrome world, music to my silent heart, and meaning to my existence. Every day with you feels like a blessing I don't deserve but will forever be grateful for.</p>
+                    
+                    <p>Your smile is my favorite sight, your laughter my favorite sound, and your presence my greatest comfort. When I look into your eyes, I see my future, my happiness, and my home. You've shown me what true love means - it's in the little things, the quiet moments, the shared glances, and the unspoken understanding between us.</p>
+                    
+                    <p>I love the way your mind works, the kindness in your heart, and the strength in your soul. You inspire me to be a better person every single day. With you, I've discovered parts of myself I never knew existed - a capacity to love so deeply, to care so profoundly, and to commit so completely.</p>
+                    
+                    <p>No matter what challenges we face, I want to face them with you. Through sunshine and storms, joy and sorrow, I choose you. Today, tomorrow, and for all the days of my life, I will love you with every fiber of my being. You are my everything, my always, and my forever.</p>
+                </div>
+                
+                <div class="buttons-container">
+                    <button id="surpriseBtn" class="special-btn">
+                        <i class="fas fa-gift"></i> Special Surprise
+                    </button>
+                    <button id="messageBtn">
+                        <i class="fas fa-envelope"></i> Secret Message
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>With all my love, forever and always ❤️</p>
+        </div>
+    </div>
+    
+    <div class="floating-hearts" id="heartsContainer"></div>
+    
+    <!-- Message Modal -->
+    <div class="message-modal" id="messageModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>My Secret Message</h2>
+            <p>My love, no matter how much time passes, my feelings for you only grow stronger. You are the missing piece that completes my soul. I can't imagine my life without you, and I promise to spend every day making you as happy as you've made me.</p>
+            <p>You are my today and all of my tomorrows.</p>
+            <div class="love-meter">
+                <div class="love-fill" id="loveFill"></div>
+            </div>
+            <p>My love for you: <span id="lovePercent">0%</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+        
+        // Apology button interaction
+        document.getElementById('apologyBtn').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-heart"></i> Thank you for your forgiveness ❤️';
+            this.style.background = 'linear-gradient(to right, #a8e6cf, #dcedc1)';
+            
+            // Create extra hearts when button is clicked
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = '0s';
+                document.getElementById('heartsContainer').appendChild(heart);
+            }
+        });
+        
+        // Promise button interaction
+        document.getElementById('promiseBtn').addEventListener('click', function() {
+            alert("I promise to always:\n\n• Love you unconditionally\n• Respect you and your decisions\n• Support your dreams\n• Be honest and faithful\n• Make you laugh every day\n• Be your safe place\n• Grow with you through life's journey");
+        });
+        
+        // Memory button interaction
+        document.getElementById('memoryBtn').addEventListener('click', function() {
+            alert("Remember our first meet? That nervous excitement? Or that time we were so excited to see each other for the very first time? Every memory with you is etched in my heart forever. I cherish each moment we've shared and look forward to creating so many more beautiful memories together, i still remember the day you came to see me wearing yellow kurthi which makes you more beautiful and preety , the way you put tika on my head , the way you holds my hands was just crazy .");
+        });
+        
+        // Love meter button
+        document.getElementById('loveMeterBtn').addEventListener('click', function() {
+            const loveFill = document.getElementById('loveFill');
+            const lovePercent = document.getElementById('lovePercent');
+            const messageModal = document.getElementById('messageModal');
+            
+            messageModal.style.display = 'flex';
+            
+            // Animate love meter
+            setTimeout(() => {
+                loveFill.style.width = '100%';
+                let percent = 0;
+                const interval = setInterval(() => {
+                    percent++;
+                    lovePercent.textContent = percent + '%';
+                    if (percent >= 100) clearInterval(interval);
+                }, 20);
+            }, 500);
+        });
+        
+        // Surprise button
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            // Create a shower of hearts
+            for (let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                heart.style.animationDelay = '0s';
+                document.getElementById('heartsContainer').appendChild(heart);
+            }
+            
+            // Change button text
+            this.innerHTML = '<i class="fas fa-gift"></i> You are my greatest gift!';
+            this.style.background = 'linear-gradient(to right, #a8e6cf, #dcedc1)';
+        });
+        
+        // Message button
+        document.getElementById('messageBtn').addEventListener('click', function() {
+            const messages = [
+                "You are the sunshine that brightens my darkest days.",
+                "My love for you grows stronger with each passing moment.",
+                "You are the most beautiful part of my life.",
+                "I fall for you more every day.",
+                "Your smile is my favorite view.",
+                "You complete me in ways I never knew were possible.",
+                "My heart belongs to you, now and forever.",
+                "You are my today and all of my tomorrows."
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            alert("Secret Message: " + randomMessage);
+        });
+        
+        // Close modal
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('messageModal').style.display = 'none';
+            document.getElementById('loveFill').style.width = '0%';
+            document.getElementById('lovePercent').textContent = '0%';
+        });
+        
+        // Initialize the page
+        window.onload = function() {
+            createHearts();
+            
+            // Add initial animation to header
+            const header = document.querySelector('.header');
+            header.style.animation = 'fadeIn 1.5s ease';
+        };
+    </script>
+</body>
+</html>
